@@ -45,15 +45,25 @@ const About = () => {
               Starts Here
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              <strong>Global Spoken English</strong>, founded by <strong>Ghulam Nabi</strong>, 
-              has been empowering students for over 11 years. Ghulam Nabi is a pupil of <strong>Munawar Zama</strong>, 
-              the prominent motivational speaker. We specialize in spoken English, 
-              helping learners build confidence from basic communication to fluent conversations.
+              <strong>Global Spoken English</strong> stands as a beacon of excellence in the realm of spoken English education, 
+              having been meticulously established and nurtured by the visionary educator <strong>Ghulam Nabi</strong>. 
+              With an unwavering commitment spanning over eleven years, this distinguished institution has metamorphosed 
+              the linguistic capabilities of countless aspirants, transmuting their hesitant utterances into eloquent, 
+              articulate expressions.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Ghulam Nabi, the esteemed architect of this educational edifice, has had the extraordinary privilege 
+              of being mentored by <strong>Munawar Zama</strong>, the preeminent motivational orator whose profound 
+              insights and transformative pedagogical philosophies have profoundly influenced the teaching methodology 
+              employed at Global Spoken English. This intellectual lineage ensures that every student receives not 
+              merely linguistic instruction, but a comprehensive cognitive transformation.
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Our unique teaching methodology focuses on practical speaking skills, pronunciation, 
-              and real-world communication. Whether you're a complete beginner or looking to 
-              polish your skills, we have the right program for you.
+              Our bespoke curriculum transcends conventional rote memorization, instead emphasizing practical verbal 
+              communication, phonetic precision, and authentic conversational proficiency. Whether you are an absolute 
+              novice embarking upon your inaugural foray into English communication or a seasoned learner seeking to 
+              refine and polish your existing capabilities, our institution provides the quintessential environment 
+              for your linguistic advancement.
             </p>
 
             {/* Hindi Slogan */}
@@ -62,7 +72,7 @@ const About = () => {
                 "फ़र्राटेदार अंग्रेज़ी बोलना सीखें"
               </p>
               <p className="text-muted-foreground text-center mt-2">
-                Learn to speak English fluently and confidently
+                Master the art of speaking English fluently and with unwavering confidence
               </p>
             </div>
           </motion.div>

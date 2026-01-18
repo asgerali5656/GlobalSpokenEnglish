@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Trophy, ExternalLink, Star, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Trophy, Star, TrendingUp } from "lucide-react";
 
 const Results = () => {
   return (
@@ -73,22 +72,6 @@ const Results = () => {
               <p className="text-muted-foreground text-sm">Years of Excellence</p>
             </motion.div>
           </div>
-
-          {/* CTA Button */}
-          <Button
-            asChild
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-lg"
-          >
-            <a
-              href="https://globalspokenenglishresultout.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ExternalLink className="mr-2 h-5 w-5" />
-              View All Results
-            </a>
-          </Button>
         </motion.div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Facebook, Youtube, MessageCircle, Mail, Phone } from "lucide-react";
+import { Facebook, Youtube, MessageCircle, Phone, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
               Join thousands of students who've transformed their communication skills with us.
             </p>
             <p className="text-xl font-semibold text-secondary">
-              "फ़र्राटेदार इंग्लिश बोलना सीखें"
+              "फ़र्राटेदार अंग्रेज़ी बोलना सीखें"
             </p>
           </div>
 
@@ -46,6 +46,16 @@ const Footer = () => {
               <li>
                 <a href="#branches" className="text-background/70 hover:text-secondary transition-colors">
                   Branches
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://globalspokenenglishresultout.vercel.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-secondary transition-colors"
+                >
+                  Results
                 </a>
               </li>
             </ul>
@@ -103,6 +113,21 @@ const Footer = () => {
           </p>
           <p className="text-background/40 text-sm mt-2">
             Director: Ghulam Nabi | 11+ Years of Excellence
+          </p>
+          <p className="text-background/50 text-sm mt-2">
+            © Asger Ali
+          </p>
+          <p className="text-background/40 text-sm mt-1 flex items-center justify-center gap-1">
+            Made with ❤️ by 
+            <a 
+              href="https://www.instagram.com/asgerali5656" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-secondary hover:underline"
+            >
+              <Instagram className="w-4 h-4" />
+              Asger Ali
+            </a>
           </p>
         </div>
       </div>

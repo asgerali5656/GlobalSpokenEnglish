@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, MessageCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -14,15 +14,33 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      // Close mobile menu on scroll
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   const whatsappNumber = "918299324931";
 
@@ -37,13 +55,15 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container px-4">
+      <div className="container px-4" ref={menuRef}>
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
             <img 
               src="/logo.jpg" 
               alt="Global Spoken English" 
+              loading="eager"
+              decoding="async"
               className="w-10 h-10 rounded-full object-cover"
             />
             <span
@@ -68,6 +88,21 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="font-semibold rounded-lg"
+            >
+              <a
+                href="https://globalspokenenglishresultout.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Results
+              </a>
+            </Button>
             <Button
               asChild
               size="sm"
@@ -98,42 +133,55 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-lg"
-          >
-            <div className="container px-4 py-6">
-              <div className="flex flex-col gap-4">
-                {navLinks.map((link) => (
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-lg"
+            >
+              <div className="container px-4 py-6">
+                <div className="flex flex-col gap-4">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-foreground font-medium py-2 hover:text-secondary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
                   <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-foreground font-medium py-2 hover:text-secondary transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <Button
-                  asChild
-                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-lg mt-2"
-                >
-                  <a
-                    href={`https://wa.me/${whatsappNumber}`}
+                    href="https://globalspokenenglishresultout.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-foreground font-medium py-2 hover:text-secondary transition-colors flex items-center gap-2"
                   >
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    Chat on WhatsApp
+                    <ExternalLink className="w-4 h-4" />
+                    Results
                   </a>
-                </Button>
+                  <Button
+                    asChild
+                    className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold rounded-lg mt-2"
+                  >
+                    <a
+                      href={`https://wa.me/${whatsappNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Chat on WhatsApp
+                    </a>
+                  </Button>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

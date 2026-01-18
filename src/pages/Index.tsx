@@ -5,6 +5,7 @@ import RamzanBatch from "@/components/RamzanBatch";
 import Results from "@/components/Results";
 import Testimonials from "@/components/Testimonials";
 import DailyWords from "@/components/DailyWords";
+import EnglishMyths from "@/components/EnglishMyths";
 import DictionarySearch from "@/components/DictionarySearch";
 import Quotes from "@/components/Quotes";
 import YouTubeStats from "@/components/YouTubeStats";
@@ -12,7 +13,6 @@ import InquiryForm from "@/components/InquiryForm";
 import AdmissionForm from "@/components/AdmissionForm";
 import Branches from "@/components/Branches";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -24,6 +24,7 @@ const Index = () => {
       <Results />
       <Testimonials />
       <DailyWords />
+      <EnglishMyths />
       <DictionarySearch />
       <Quotes />
       <YouTubeStats />
@@ -31,7 +32,6 @@ const Index = () => {
       <AdmissionForm />
       <Branches />
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };

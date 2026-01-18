@@ -8,21 +8,145 @@
     <meta name="author" content="Global Spoken English - Ghulam Nabi" />
     <meta name="keywords" content="spoken english, english speaking course, english institute mau, learn english, ghosi mau, kopaganj english, english classes" />
 
+    <!-- Favicon & App Icons -->
     <link rel="icon" href="/logo.jpg" type="image/jpeg" />
     <link rel="apple-touch-icon" href="/logo.jpg" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Global Spoken English" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Global Spoken English - फ़र्राटेदार अंग्रेज़ी बोलना सीखें" />
     <meta property="og:description" content="Transform your English speaking skills. 11+ years of excellence in Mau, UP." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/logo.jpg" />
+    <meta property="og:locale" content="en_IN" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Global Spoken English" />
     <meta name="twitter:description" content="Learn to speak fluent English - Mau, UP" />
+
+    <!-- JSON-LD Structured Data for Local Business SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Global Spoken English",
+      "alternateName": "GSE",
+      "description": "Learn spoken English from basic to fluent. 11+ years of experience in teaching English speaking skills.",
+      "url": "https://globalspokenenglish.com",
+      "logo": "/logo.jpg",
+      "image": "/logo.jpg",
+      "telephone": "+91-8299324931",
+      "email": "globalspokenenglish@gmail.com",
+      "foundingDate": "2013",
+      "founder": {
+        "@type": "Person",
+        "name": "Ghulam Nabi",
+        "description": "Pupil of Munawar Zama, prominent motivational speaker"
+      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Karimuddinpur Ghosi",
+          "addressLocality": "Mau",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "275304",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "In front of Sarvoday College, Majhwaramod Ghosi",
+          "addressLocality": "Mau",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Near HDFC Bank, Kopaganj",
+          "addressLocality": "Mau",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        }
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Mau",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Uttar Pradesh"
+        }
+      },
+      "sameAs": [
+        "https://www.facebook.com/globalspokenenglish1",
+        "https://www.youtube.com/@globalspokenenglishup"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "English Speaking Courses",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Spoken English Course",
+            "description": "Learn to speak fluent English from basic to advanced level"
+          },
+          {
+            "@type": "Course",
+            "name": "Ramzan Special Intensive Batch",
+            "description": "One-month intensive program from scratch to confident English speaker"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "500",
+        "bestRating": "5"
+      }
+    }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4T901PYSER"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4T901PYSER');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "v2gu7nw12t");
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
